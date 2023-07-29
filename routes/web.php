@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,18 +31,22 @@ Route::get('/about', function () {
 
 
 Route::get('/blog', function () {
-    $blog_posts = [[
-        "title" => "Judul Posts Pertama",
-        "author" => "Charles Wijaya",
-        "body" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere veritatis qui reiciendis voluptatum in aut eveniet numquam recusandae nisi accusamus perferendis, eligendi, vel, non velit eaque vero odit culpa voluptatibus perspiciatis fugiat? Labore aliquam, possimus praesentium inventore iure neque doloremque sint nemo exercitationem eveniet laborum maiores nihil delectus ipsa distinctio voluptatem enim libero temporibus assumenda voluptates adipisci tempore recusandae. Alias corporis nulla, laboriosam velit tempore quis laudantium non similique id unde autem necessitatibus vitae facere, reprehenderit asperiores. Numquam, similique ut.",
-    ],[
-        "title" => "Judul Posts Kedua",
-        "author" => "Elena Erensia",
-        "body" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere veritatis qui reiciendis voluptatum in aut eveniet numquam recusandae nisi accusamus perferendis, eligendi, vel, non velit eaque vero odit culpa voluptatibus perspiciatis fugiat? Labore aliquam, possimus praesentium inventore iure neque doloremque sint nemo exercitationem eveniet laborum maiores nihil delectus ipsa distinctio voluptatem enim libero temporibus assumenda voluptates adipisci tempore recusandae. Alias corporis nulla, laboriosam velit tempore quis laudantium non similique id unde autem necessitatibus vitae facere, reprehenderit asperiores. Numquam, similique ut.",
-    ]];
+
     
     return view('posts',[
         'title' => "Posts",
-        'posts' => $blog_posts,
+        'posts' => Post::all(),
+    ]);
+});
+
+Route::get('posts/{slug}', function($slug){
+
+
+
+    return view('post',[
+        'title' => 'Single Posts',
+        'posts' => Post::all(),
+        'slug' => $slug,
+
     ]);
 });
