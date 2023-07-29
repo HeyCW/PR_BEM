@@ -22,6 +22,16 @@ class Post
     ]];
 
     public static function all(){
-        return self::$blog_posts;
+        return collect(self::$blog_posts);
+    }
+
+    public static function search($slug){
+        $posts = static::all();
+        // foreach ($posts as $post) {
+        //     if ($slug === $post["slug"]) {
+        //         return $post;
+        //     }
+        // }
+        return $posts->firstWhere('slug', $slug);
     }
 }
