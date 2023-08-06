@@ -4,7 +4,7 @@
     {{-- @if ($slug === $post['slug']) --}}
     <article>
         <h3>{{$post->title}}</h3> 
-        <h6>By: <a href="/users/{{ $post->user->name }}" class="text-decoration-none" >{{ $post->user->name }}</a></h6>
+        <h6>By: <a href="/users/{{ $post->author->username }}" class="text-decoration-none" >{{ $post->author->name }}</a></h6>
         <h6><a href="/categories/{{$post->category->slug}}" class="text-decoration-none">{{$post->category->name}}</a></h6>
         {!! $post->body !!}
     </article>
