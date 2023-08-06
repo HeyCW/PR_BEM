@@ -4,12 +4,13 @@
     {{-- @if ($slug === $post['slug']) --}}
     <article>
         <h3>{{$post->title}}</h3> 
-        <a href="/categories/{{$post->category->slug}}"><h5>{{$post->category->name}}</h5></a>
+        <h6>By: <a href="/users/{{ $post->user->name }}" class="text-decoration-none" >{{ $post->user->name }}</a></h6>
+        <h6><a href="/categories/{{$post->category->slug}}" class="text-decoration-none">{{$post->category->name}}</a></h6>
         {!! $post->body !!}
     </article>
     {{-- @endif --}}
 {{-- @endforeach     --}}
-    <a href="../blog">Back to Posts</a>
+    <a href="../blog" class="text-decoration-none d-block mt-3">Back to Posts</a>
 @endsection
 
 
