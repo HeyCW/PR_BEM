@@ -11,9 +11,15 @@ class PostController extends Controller
 {
     public function index(){
 
+        // $posts = Post::latest();
+
+        // if (request('search')) {
+        //     Post::filter()->latest()->get();
+        // }
+
         return view('posts',[
             'title' => "Posts",
-            'posts' => Post::latest()->get(),
+            'posts' => Post::filter(request(['search']))->latest()->get(),
             'page' => "Halaman Posts"
             // 'posts' => Post::all(),
         ]);
