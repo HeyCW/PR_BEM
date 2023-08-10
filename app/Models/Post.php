@@ -20,10 +20,23 @@ class Post extends Model
     // ];
 
     public function scopeFilter($query, array $filters){
-        if (isset($filters['search']) ? $filters['search'] : false) {
-            return $query->where('title', 'like', '%' . $filters['search'] . '%')
-                     ->orWhere('body', 'like', '%' . $filters['search'] . '%');
-        }
+        // if (isset($filters['search']) ? $filters['search'] : false) {
+        //     return $query->where('title', 'like', '%' . $filters['search'] . '%')
+        //              ->orWhere('body', 'like', '%' . $filters['search'] . '%');
+        // }
+
+        $query->when($filters["search"]??false, function($query, $search){
+            $query->where('title', 'like', '%' . $search . '%')
+                     ->orWhere('body', 'like', '%' . $search . '%');
+        });
+
+        $query->when($filters['category']??false, function($query, $category){
+            $query->whereHas('category', function($query) use ($category){
+                $query->where('slug', $category);
+            });
+
+        });
+
     }
 
     protected $guarded = ['id'];    
