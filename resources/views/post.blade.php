@@ -7,8 +7,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                     <h3>{{$post->title}}</h3> 
-                    <h6>By: <a href="/users/{{ $post->author->username }}" class="text-decoration-none" >{{ $post->author->name }}</a></h6>
-                    <h6><a href="/categories/{{$post->category->slug}}" class="text-decoration-none">{{$post->category->name}}</a></h6>
+                    <h6>By: <a href="/blog?author={{ $post->author->username }}" class="text-decoration-none" >{{ $post->author->name }}</a></h6>
+                    <h6><a href="/blog?category={{$post->category->slug}}" class="text-decoration-none">{{$post->category->name}}</a></h6>
                     <img src="https://source.unsplash.com/1200x350?{{$post->category->name}}" class="img-fluid" alt="Image">
 
                     <article class="my-5">
