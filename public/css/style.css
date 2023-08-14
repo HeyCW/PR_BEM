@@ -3,6 +3,7 @@ body{
 }
 
 .form-signin {
+    
     max-width: 330px;
     padding: 1rem;
   }
@@ -27,5 +28,10 @@ body{
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+  }
+
+
+  .error-message{
+    color: red;
   }
   
