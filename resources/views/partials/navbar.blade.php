@@ -19,6 +19,11 @@
             <a class="nav-link {{$title === 'Post Categories' ? "active" : ""}}" href="/categories">Categories</a>
           </li>
         </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="navbar-item">
+            <a href="/login" class="nav-link {{$title === "Login" || $title === "Register" ? "active" : ""}}">Login</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
