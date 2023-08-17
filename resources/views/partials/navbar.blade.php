@@ -20,9 +20,21 @@
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
+
+          @auth
+          <li class="navbar-item">
+
+            <form action="/logout" method="POST">
+              @csrf
+              <button class="nav-link">Logout</button>
+            </form>
+          </li>
+          @else
           <li class="navbar-item">
             <a href="/login" class="nav-link {{$title === "Login" || $title === "Register" ? "active" : ""}}">Login</a>
           </li>
+          @endauth
+
         </ul>
       </div>
     </div>
