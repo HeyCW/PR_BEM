@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link {{Request::is('/dashboard/posts') ? 'active' : ''}}" aria-current="page" href="/dashboard/posts">MyPost</a>
+                <a class="nav-link {{Request::is('dashboard/posts*') ? 'active' : ''}}" aria-current="page" href="/dashboard/posts">MyPost</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/dashboard">Features</a>
