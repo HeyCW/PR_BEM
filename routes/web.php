@@ -64,7 +64,7 @@ Route::get('/login', [LoginController::class, 'index'])->middleware("guest")->na
 
 Route::get('/register', [RegisterController::class, 'index']);
 
-Route::post('/login', [LoginController::class, 'check']);
+Route::post('/login', [LoginController::class, 'check'])->name("cek");
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
